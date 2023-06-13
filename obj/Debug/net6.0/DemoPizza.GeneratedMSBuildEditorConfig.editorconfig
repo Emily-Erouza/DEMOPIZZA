@@ -1,0 +1,105 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = DemoPizza
+build_property.RootNamespace = DemoPizza
+build_property.ProjectDir = /home/tcg/workspace/DemoPizza/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/tcg/workspace/DemoPizza
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/tcg/workspace/DemoPizza/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/FirstClassLibrary/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Rmlyc3RDbGFzc0xpYnJhcnkvX0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/MyProjectName/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = TXlQcm9qZWN0TmFtZS9fSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/AdressEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRyZXNzRWRpdG9yLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/Checkout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ2hlY2tvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/Counter.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQ291bnRlci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/FetchData.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRmV0Y2hEYXRhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/My Orders.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvTXkgT3JkZXJzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/OrderDetails.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvT3JkZXJEZXRhaWxzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Shared/AdressEditor.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0FkcmVzc0VkaXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Shared/Board.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL0JvYXJkLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Shared/OrderReview.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL09yZGVyUmV2aWV3LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL1N1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/FirstClassLibrary/Component1.razor]
+build_metadata.AdditionalFiles.TargetPath = Rmlyc3RDbGFzc0xpYnJhcnkvQ29tcG9uZW50MS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-tlfrwx4q72
+
+[/home/tcg/workspace/DemoPizza/MyProjectName/Component1.razor]
+build_metadata.AdditionalFiles.TargetPath = TXlQcm9qZWN0TmFtZS9Db21wb25lbnQxLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-tj8rwt2oyu
+
+[/home/tcg/workspace/DemoPizza/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-9d41e8zyc1
+
+[/home/tcg/workspace/DemoPizza/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL05hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-rgny4vhokb
+
+[/home/tcg/workspace/DemoPizza/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/tcg/workspace/DemoPizza/Pages/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,44 @@
+@* <div class="form-field">
+    <label>Name:</label>
+    <div>
+        <<input @ref="startName" @bind="Address.Name" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>Line 1:</label>
+    <div>
+      <input @ref="startName" @bind="Address.Line 1" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>Line 2:</label>
+    <div>
+       <input @ref="startName" @bind="Address.Line 2" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>City:</label>
+    <div>
+        <input @ref="startName" @bind="Address.City" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>Region:</label>
+    <div>
+      <input @ref="startName" @bind="Address.region" />
+    </div>
+</div>
+
+<div class="form-field">
+    <label>Postal code:</label>
+    <div>
+       <input @ref="startName" @bind="Address.Postal code" />
+    </div>
+</div>
+@code {
+    [Parameter] public Address Address { get; set; }
+} *@

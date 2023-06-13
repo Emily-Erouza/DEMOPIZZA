@@ -1,0 +1,84 @@
+@* @page "/myorders/{orderId:int}"
+@inject NavigationManager NavigationManager
+@inject HttpClient HttpClient
+@implements IDisposable
+@using BlazingPizza.Components
+<div class="main">
+  else
+{
+    <PaginationComponent TItem="OrderWithStatus"
+        Items="ordersWithStatus.OrderBy(o => o.Order.CreatedTime).ToList()"
+        ItemLabel='item => new($"{item.Order.CreatedTime:ddd, MMM. d, yyyy}")'>
+        <ItemContent>
+            <div class="list-group-item bg-secondary text-white">
+                <div class="col">
+                    <h5>@($"{context.Order.CreatedTime:dddd, MMMM d, yyyy hh:mm tt}")</h5>
+                    Items:
+                    <strong>@context.Order.Pizzas.Count</strong>
+                </div>
+                <div class="col">
+                    Status: <strong>@context.StatusText</strong>
+                </div>
+                @if (@context.StatusText != "Delivered")
+                {
+                    <div class="col flex-grow-0">
+                        <a href="myorders/@context.Order.OrderId" class="btn btn-success">
+                            Track &gt;
+                        </a>
+                    </div>
+                }
+            </div>
+            <div class="list-group-item">
+                <div class="col">
+                    <OrderReview Order="@context.Order" />
+                </div>
+            </div>
+        </ItemContent>
+    </PaginationComponent>
+}
+</div>
+
+@code {
+    [Parameter] public int OrderId { get; set; }
+
+    OrderWithStatus orderWithStatus;
+    bool invalidOrder = false;
+bool IsOrderIncomplete =>
+    orderWithStatus is null || orderWithStatus.IsDelivered == false;
+
+PeriodicTimer timer = new(TimeSpan.FromSeconds(3));
+   
+protected override async Task OnParametersSetAsync() =>
+    await GetLatestOrderStatusUpdatesAsync();
+    {
+protected override Task OnAfterRenderAsync(bool firstRender) =>
+    firstRender ? StartPollingTimerAsync() : Task.CompletedTask;
+
+async Task GetLatestOrderStatusUpdatesAsync()
+{
+    try
+    {
+        orderWithStatus = await HttpClient.GetFromJsonAsync<OrderWithStatus>(
+            $"{NavigationManager.BaseUri}orders/{OrderId}");
+    }
+    catch (Exception ex)
+    {
+        invalidOrder = true;
+        Console.Error.WriteLine(ex);
+    }
+}
+
+async Task StartPollingTimerAsync()
+{
+    while (IsOrderIncomplete && await timer.WaitForNextTickAsync())
+    {
+        await GetLatestOrderStatusUpdatesAsync();
+        StateHasChanged();
+    }
+}
+
+public void Dispose() => timer.Dispose();
+
+   
+    };
+}; *@

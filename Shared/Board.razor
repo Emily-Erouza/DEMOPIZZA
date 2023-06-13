@@ -1,0 +1,46 @@
+@inject DemoPizza.Shared.GameState State
+
+@page "/"
+
+<PageTitle>Index</PageTitle>
+<Board>
+
+<h3>Board</h3>
+</Board>
+@code {
+	protected override void OnInitialized()
+	{
+		State.ResetBoard();
+	}
+}
+
+ @code {
+private void PlayPiece(byte col) 
+{
+	var landingRow = State.PlayPiece(col);
+	var cssClass = $"player{State.PlayerTurn} col{col} drop{landingRow}";
+	Pieces[State.CurrentTurn - 1] = cssClass;
+}
+  private string[] Pieces = new string[42];
+
+
+}
+@for (var i = 0; i < 42; i++)
+{
+   <span class="@Pieces[i]"></span>
+}
+
+
+@code {
+  private string[] Pieces = new string[42];
+
+} 
+<nav>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(0)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(1)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(2)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(3)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(4)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(5)">🔽</span>
+	<span title="Click to play a piece" @onclick="() => PlayPiece(6)">🔽</span>
+</nav>

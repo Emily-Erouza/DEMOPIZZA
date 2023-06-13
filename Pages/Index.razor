@@ -1,0 +1,132 @@
+﻿@* @page "/"
+    @inject HttpClient HttpClient
+    @inject NavigationManager NavigationManager
+@using BlazingPizza.Services
+@inject OrderState OrderState
+@inject IJSRuntime JavaScript
+@page "/Pizzas"
+@page "/CustomPizzas" *@
+
+@* order pizza *@
+   @* <div class="top-bar">
+    <a class="logo" href="">
+        <img src="img/logo.svg" />
+    </a>
+
+    <a href="" class="nav-tab active" >
+        <img src="img/pizza-slice.svg" />
+        <div>Get Pizza</div>
+    </a>
+
+    <a href="myorders" class="nav-tab" >
+        <img src="img/bike.svg" />
+        <div>My orders</div>
+    </a>
+
+</div>
+    @if (OrderState.ShowingConfigureDialog)
+    {
+       <ConfigurePizzaDialog Pizza="OrderState.ConfiguringPizza" />
+    }
+
+   @code {
+    List<PizzaSpecial> specials = new List<PizzaSpecial>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        specials = await HttpClient.GetFromJsonAsync<List<PizzaSpecial>>(NavigationManager.BaseUri + "specials");
+    }
+} 
+        @if (specials != null)
+         {
+          @foreach (var special in specials)
+          {
+           
+<div class="dialog-buttons">
+<button type="button" class="close text-danger" aria-label="Close"
+     @onclick="@(async () => await RemovePizzaConfirmation(configuredPizza))">
+     <span aria-hidden="true">&times;</span>
+ </button>
+  </div>
+          }
+         }
+
+
+   @if (OrderState.ShowingConfigureDialog)
+    {
+<ConfigurePizzaDialog
+      Pizza="OrderState.ConfiguringPizza"
+      OnCancel="OrderState.CancelConfigurePizzaDialog"
+      OnConfirm="OrderState.ConfirmConfigurePizzaDialog" />
+  }  *@
+
+
+
+@* nav link components *@
+@* @page "/pizzas"
+@inject NavigationManager NavManager
+
+<h1>Buy a Pizza</h1>
+
+<p>I want to order a: @PizzaName</p>
+
+<NavLink href=@HomePageURI Match="NavLinkMatch.All">Home Page</NavLink>
+
+@code {
+	[Parameter]
+	public string PizzaName { get; set; }
+	
+	public string HomePageURI { get; set; }
+	
+	protected override void OnInitialized()
+	{
+		HomePageURI = NavManager.BaseUri;
+	}
+} *@
+@* queryhelper *@
+@* @page "/pizzas"
+@using Microsoft.AspNetCore.WebUtilities
+
+
+<h1>Buy a Pizza</h1>
+
+<p>I want to order a: @PizzaName</p>
+
+<p>I want to add this topping: @ToppingName</p>
+
+@code {
+	[Parameter]
+	public string PizzaName { get; set; }
+	
+	private string ToppingName { get; set; }
+	
+	protected override void OnInitialized()
+	{
+		var uri = NavManager.ToAbsoluteUri(NavManager.Uri);
+		if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("extratopping", out var extraTopping))
+		{
+			ToppingName = System.Convert.ToString(extraTopping);
+		}
+	}
+}
+
+@page "/pizzas/{pizzaname}"
+
+
+<h1>Buy a Pizza</h1>
+
+<p>I want to order a: @PizzaName</p>
+
+<button class="btn" @onclick="NavigateToPaymentPage">
+	Buy this pizza!
+</button>
+
+@code {
+	[Parameter]
+	public string PizzaName { get; set; }
+	
+	private void NavigateToPaymentPage()
+	{
+		NavManager.NavigateTo("buypizza");
+	}
+} *@

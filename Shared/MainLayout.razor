@@ -1,0 +1,66 @@
+﻿@* @inherits LayoutComponentBase
+@page "/FavoritePizzas/{favorite}"
+@layout BlazingPizzasMainLayout
+<PageTitle>DemoPizza</PageTitle>
+
+
+
+<div id="app">
+
+  <header class="top-bar">
+    <a class="logo" href="">
+      <img src="img/logo.svg" />
+    </a>
+
+    <NavLink href="" class="nav-tab" Match="NavLinkMatch.All">
+      <img src="img/pizza-slice.svg" />
+      <div>Get Pizza</div>
+    </NavLink>
+
+    <NavLink href="myorders" class="nav-tab">
+      <img src="img/bike.svg" />
+      <div>My Orders</div>
+    </NavLink>
+  </header>
+
+  <div class="content">
+    @Body
+  </div>
+
+  <footer>
+    &copy; Blazing Pizza @DateTime.UtcNow.Year
+  </footer>
+
+</div>
+
+
+<header>
+	<h1>Blazing Pizza</h1>
+</header>
+
+<nav>
+	<a href="Pizzas">Browse Pizzas</a>
+	<a href="Toppings">Browse Extra Toppings</a>
+	<a href="FavoritePizzas">Tell us your favorite</a>
+	<a href="Orders">Track Your Order</a>
+</nav>
+
+@Body
+
+<footer>
+	@new MarkdownString(TrademarkMessage)
+</footer>
+
+@code {
+	public string TrademarkMessage { get; set; } = "All content is &copy; Blazing Pizzas 2021";
+}
+
+
+<h1>Choose a Pizza</h1>
+
+<p>Your favorite pizza is: @Favorite</p>
+
+@code {
+	[Parameter]
+	public string Favorite { get; set; }
+} *@

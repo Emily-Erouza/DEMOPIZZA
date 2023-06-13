@@ -1,0 +1,40 @@
+﻿@page "/"
+@namespace DemoPizza.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+
+
+<div id="app">
+    <div class="content">
+        <component type="typeof(App)" render-mode="ServerPrerendered" />
+    </div>
+</div>
+
+<!-- Omitted for brevity... -->
+        <script src="_framework/blazor.server.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert@latest/dist/sweetalert.min.js"></script>
+    </body>
+</html>
+
+async Task RemovePizzaConfirmation(Pizza removePizza)
+{
+    var messageParams = new
+    {
+        title = "Remove Pizza?",
+        text = $"""Do you want to remove the "{removePizza.Special!.Name}" from your order?""",
+        icon = "warning",
+        buttons = new
+        {
+            abort = new { text = "No, leave it in my order", value = false },
+            confirm = new { text = "Yes, remove pizza", value = true }
+        },
+        dangerMode = true
+    };
+
+    if (await JavaScript.InvokeAsync<bool>("swal", messageParams))
+    {
+        OrderState.RemoveConfiguredPizza(removePizza);
+    }
+}
